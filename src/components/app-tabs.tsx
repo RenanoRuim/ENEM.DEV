@@ -1,31 +1,34 @@
 import { NativeTabs } from 'expo-router/native-tabs';
-import { useColorScheme } from 'react-native';
-
-import { Colors } from '@/constants/theme';
 
 export default function AppTabs() {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
-
   return (
     <NativeTabs
-      backgroundColor={colors.background}
-      indicatorColor={colors.backgroundElement}
-      labelStyle={{ selected: { color: colors.text } }}>
+      backgroundColor="#161B22"
+      indicatorColor="#30363D"
+      labelStyle={{ selected: { color: '#39D353' } }}>
       <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/home.png')}
-          renderingMode="template"
-        />
+        <NativeTabs.Trigger.Label>Dashboard</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="square.grid.2x2.fill" md="dashboard" />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
-          renderingMode="template"
-        />
+      <NativeTabs.Trigger name="questions">
+        <NativeTabs.Trigger.Label>Questões</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="book.closed" md="menu_book" />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="debug">
+        <NativeTabs.Trigger.Label>Debug</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="ladybug" md="bug_report" />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="performance">
+        <NativeTabs.Trigger.Label>Desempenho</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="chart.bar" md="bar_chart" />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="about">
+        <NativeTabs.Trigger.Label>Sobre</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="info.circle" md="info" />
       </NativeTabs.Trigger>
     </NativeTabs>
   );
