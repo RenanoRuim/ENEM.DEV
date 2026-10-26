@@ -20,6 +20,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { EnemRichText } from "@/components/enem-rich-text";
+import { QuestionExplanationPanel } from "@/components/question-explanation-panel";
 import { recordAnswer } from "@/services/record-answer";
 import { ACHIEVEMENTS } from "@/constants/gamification";
 import type {
@@ -363,6 +364,14 @@ export function AnswerQuestion({
             </Text>
           ) : null}
         </Animated.View>
+      ) : null}
+
+      {isConfirmed && selectedAnswer ? (
+        <QuestionExplanationPanel
+          questionId={getQuestionIdentity(question, language)}
+          selectedAnswer={selectedAnswer}
+          correctAnswer={question.correctAlternative}
+        />
       ) : null}
 
       {rewardResult && !rewardResult.duplicate ? (

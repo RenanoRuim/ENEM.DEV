@@ -190,3 +190,87 @@ export async function loadQuestionsForReview(
     ),
   };
 }
+
+export async function loadQuestionsByIdentifiers(
+  identifiers: string[],
+): Promise<{ questions: EnemQuestion[]; unavailableIds: string[] }> {
+  const uniqueIds = Array.from(new Set(identifiers));
+  const parsed = uniqueIds.flatMap((questionId) => {
+    const match = /^(\d{4}):(\d+)(?::(.+))?$/u.exec(questionId);
+    if (!match) {
+      return [];
+    }
+    const year = Number(match[1]);
+    const questionNumber = Number(match[2]);
+    if (
+      !Number.isInteger(year) ||
+      year <= 0 ||
+      !Number.isInteger(questionNumber) ||
+      questionNumber <= 0
+    ) {
+      return [];
+    }
+    return [{
+      questionId,
+      year,
+      questionNumber,
+      language: match[3] ?? null,
+    }];
+  });
+  const found = new Map<string, EnemQuestion>();
+  const groups = new Map<string, typeof parsed>();
+
+  for (const identifier of parsed) {
+    const groupId = `${identifier.year}:${identifier.language ?? ""}`;
+    const group = groups.get(groupId) ?? [];
+    group.push(identifier);
+    groups.set(groupId, group);
+  }
+
+  for (const group of groups.values()) {
+    const [first] = group;
+    const requestedIds = new Set(group.map((item) => item.questionId));
+    let offset = 0;
+    let hasMore = true;
+
+    while (hasMore && group.some((item) => !found.has(item.questionId))) {
+      const page = await fetchQuestions(first.year, {
+        limit: API_PAGE_SIZE,
+        offset,
+        ...(first.language ? { language: first.language } : {}),
+      });
+      for (const question of page.questions) {
+        if (!hasValidQuestionIdentity(question)) {
+          continue;
+        }
+        const id = getQuestionIdentity(question, first.language ?? undefined);
+        if (
+          requestedIds.has(id) &&
+          validateEnemQuestion(question).isValid
+        ) {
+          found.set(id, {
+            ...question,
+            language: question.language ?? first.language,
+          });
+        }
+      }
+
+      const nextOffset = page.metadata.offset + page.metadata.limit;
+      if (nextOffset <= offset) {
+        break;
+      }
+      offset = nextOffset;
+      hasMore =
+        page.metadata.hasMore &&
+        offset <= Math.max(...group.map((item) => item.questionNumber));
+    }
+  }
+
+  return {
+    questions: uniqueIds.flatMap((id) => {
+      const question = found.get(id);
+      return question ? [question] : [];
+    }),
+    unavailableIds: uniqueIds.filter((id) => !found.has(id)),
+  };
+}

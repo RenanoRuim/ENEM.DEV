@@ -1,5 +1,5 @@
 import { ArrowRight, Flame, Target, Trophy } from "lucide-react-native";
-import { Link, useFocusEffect } from "expo-router";
+import { Link, useFocusEffect, useRouter } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import {
@@ -44,6 +44,7 @@ const colors = {
 };
 
 export default function DashboardScreen() {
+  const router = useRouter();
   const width = useViewportWidth();
   const reduceMotion = useReducedMotion();
   const isWide = width >= 900;
@@ -467,6 +468,21 @@ export default function DashboardScreen() {
                 <ArrowRight color={colors.blue} size={15} />
               </Pressable>
             </Link>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Abrir Sobre o ENEM.DEV"
+              onPress={() => router.push("/about")}
+              style={({ pressed }) => [
+                styles.recommendationLink,
+                pressed && styles.pressed,
+                pressed && !reduceMotion && styles.pressedScale,
+              ]}
+            >
+              <TextLabel style={styles.recommendationLinkText}>
+                Sobre o ENEM.DEV
+              </TextLabel>
+              <ArrowRight color={colors.blue} size={15} />
+            </Pressable>
           </View>
         </Animated.View>
       </ScrollView>

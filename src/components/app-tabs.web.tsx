@@ -1,6 +1,9 @@
 import { Tabs, TabList, TabTrigger, TabSlot } from "expo-router/ui";
+import type { Href } from "expo-router";
+import { ExternalLink } from "@/components/external-link";
 import {
   BookOpen,
+  NotebookPen,
   Bug,
   ChartNoAxesColumnIncreasing,
   Code2,
@@ -15,6 +18,12 @@ import { useIsWideLayout } from "@/hooks/use-is-wide-layout";
 const navItems = [
   { name: "home", href: "/", label: "Dashboard", icon: House },
   { name: "questions", href: "/questions", label: "Questões", icon: BookOpen },
+  {
+    name: "redacao-lab",
+    href: "/redacao-lab" as Href,
+    label: "Redação Lab",
+    icon: NotebookPen,
+  },
   { name: "debug", href: "/debug", label: "Debug Mode", icon: Bug },
   {
     name: "performance",
@@ -35,6 +44,7 @@ type TabButtonProps = Omit<ComponentProps<typeof Pressable>, "ref"> & {
   icon: NavIcon;
   label: string;
   compact: boolean;
+  hidden?: boolean;
 };
 
 export default function AppTabs() {
@@ -66,6 +76,7 @@ export default function AppTabs() {
                 icon={item.icon}
                 label={item.label}
                 compact={!isWide}
+                hidden={!isWide && item.name === "about"}
               />
             </TabTrigger>
           ))}
@@ -85,9 +96,14 @@ export default function AppTabs() {
           <Text style={styles.sectionCaption}>PLATAFORMA</Text>
           <View style={styles.sidebarFooter}>
             <View style={styles.footerStatus} />
-            <Text style={styles.footerText}>
-              Apenas você decide seu limite para aprender.
-            </Text>
+            <View style={styles.footerCopy}>
+              <Text style={styles.footerText}>
+                Apenas você decide seu limite para aprender.
+              </Text>
+              <ExternalLink href="https://github.com/RenanoRuim" style={styles.footerCredit}>
+                Projeto de P. Renan · GitHub
+              </ExternalLink>
+            </View>
           </View>
         </>
       )}
@@ -101,6 +117,7 @@ export function TabButton({
   icon: Icon,
   label,
   compact,
+  hidden = false,
   ...props
 }: TabButtonProps) {
   return (
@@ -111,6 +128,7 @@ export function TabButton({
       style={({ pressed }) => [
         styles.tabButton,
         compact && styles.mobileTabButton,
+        hidden && styles.hiddenTabButton,
         isFocused && styles.activeTabButton,
         pressed && styles.pressed,
       ]}
@@ -244,6 +262,9 @@ const styles = StyleSheet.create({
   activeTabButton: {
     backgroundColor: "#39D35316",
   },
+  hiddenTabButton: {
+    display: "none",
+  },
   tabLabel: {
     color: "#8B949E",
     fontSize: 12,
@@ -266,10 +287,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
     paddingHorizontal: 8,
-    paddingVertical: 18,
+    paddingVertical: 12,
     borderTopWidth: 1,
     borderTopColor: "#30363D",
   },
+  footerCopy: { flex: 1, gap: 5 },
   footerStatus: {
     width: 6,
     height: 6,
@@ -279,6 +301,11 @@ const styles = StyleSheet.create({
   footerText: {
     color: "#8B949E",
     fontSize: 10,
+  },
+  footerCredit: {
+    color: "#58A6FF",
+    fontSize: 9,
+    fontWeight: "600",
   },
   pressed: {
     opacity: 0.7,
