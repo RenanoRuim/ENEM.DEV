@@ -21,7 +21,7 @@
       "package": "com.renanneopl1.enemfordevs"
     },
     "web": {
-      "output": "server",
+      "output": "static",
       "favicon": "./assets/images/Miguel1.png"
     },
     "plugins": [
