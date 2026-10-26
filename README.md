@@ -1,186 +1,256 @@
+<div align="center">
+
 # 🎓 ENEM.DEV
 
 ### `Compile seu conhecimento. Faça deploy do seu futuro.`
 
-**ENEM.DEV** é uma plataforma de estudos gamificada, desenvolvida para tornar a preparação para o Exame Nacional do Ensino Médio (ENEM) mais organizada, interativa e motivadora.
+**Uma plataforma de estudos gamificada para quem quer evoluir no ENEM.**
 
-A aplicação combina questões reais de edições anteriores do exame, acompanhamento de desempenho, revisão de erros e elementos de gamificação, como XP, níveis, conquistas e metas diárias.
+Questões • Revisões • Redações • Conquistas • Progresso
 
-O projeto foi desenvolvido com **Expo, React Native, TypeScript e Expo Router**, oferecendo uma experiência responsiva para Web e dispositivos móveis.
+![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Android-22C55E?style=for-the-badge)
 
-> **🤖 Projeto desenvolvido com Vibe Coding**
+· [🐛 Reportar problema](https://github.com/RenanoRuim/ENEM.DEV/issues)**
+
+</div>
+
+---
+
+## 📖 Sobre o projeto
+
+O **ENEM.DEV** é uma aplicação de estudos desenvolvida para tornar a preparação para o Exame Nacional do Ensino Médio (ENEM) mais interativa, organizada e motivadora.
+
+A plataforma reúne questões de edições anteriores do exame, revisão de erros, acompanhamento de desempenho, prática de redações e elementos de gamificação.
+
+Seu objetivo é ajudar estudantes a desenvolver uma rotina de estudos consistente, identificar dificuldades e acompanhar sua evolução.
+
+O aplicativo foi desenvolvido com **Expo, React Native, TypeScript e Expo Router**, com suporte à Web e a dispositivos móveis.
+
+> [!NOTE]
+> **Desenvolvimento com Vibe Coding**
 >
-> O ENEM.DEV foi construído majoritariamente com o auxílio de ferramentas de Inteligência Artificial, utilizando a abordagem conhecida como **Vibe Coding**.
+> O ENEM.DEV foi desenvolvido predominantemente com o auxílio de ferramentas de Inteligência Artificial.
 >
-> A IA foi responsável por grande parte da implementação do código, enquanto o desenvolvimento do projeto envolveu a definição da ideia, das funcionalidades, das regras de negócio, da experiência do usuário, além de testes, identificação de problemas e decisões sobre melhorias.
+> A concepção do produto, a definição das funcionalidades, o direcionamento do desenvolvimento, os testes e as decisões de evolução foram conduzidos pelo criador do projeto.
 >
-> O objetivo também foi experimentar o uso da IA como ferramenta de desenvolvimento e compreender as possibilidades e limitações dessa abordagem na criação de um produto funcional.
+> Grande parte da implementação do código foi realizada por IA a partir de instruções em linguagem natural.
+>
+> Essa abordagem faz parte da proposta experimental do projeto e é apresentada de forma transparente.
 
 ---
 
-## 💡 Como surgiu o projeto?
+## 💡 Como surgiu o ENEM.DEV?
 
-O ENEM.DEV nasceu de um problema pessoal: **a necessidade de estudar para o ENEM**.
+O projeto nasceu de uma necessidade pessoal: **encontrar uma forma mais interessante e organizada de estudar para o ENEM**.
 
-Durante a preparação para o exame, surgiu a ideia de criar uma ferramenta que tornasse o processo de estudo mais interessante e ajudasse a acompanhar a evolução ao longo do tempo.
+A ideia era criar uma ferramenta que fosse além de apresentar questões e mostrar respostas.
 
-A proposta era simples: desenvolver uma plataforma em que responder questões não fosse apenas uma atividade repetitiva, mas parte de um sistema de progresso.
+Queria desenvolver um ambiente em que fosse possível:
 
-Inspirado em conceitos de programação e desenvolvimento de software, o ENEM.DEV transforma atividades de estudo em uma experiência gamificada.
+- Praticar questões de provas anteriores.
+- Identificar os conteúdos com maior dificuldade.
+- Revisar questões respondidas incorretamente.
+- Acompanhar o progresso ao longo dos estudos.
+- Criar o hábito de estudar diariamente.
+- Praticar redações e organizar materiais de revisão.
 
-Cada questão respondida representa uma oportunidade de aprender, corrigir erros e evoluir.
+A identidade visual e a gamificação foram inspiradas no universo da programação.
 
-Além de servir como ferramenta de estudos, o projeto também se tornou uma experiência prática de desenvolvimento de software com Inteligência Artificial.
+Por isso, o ENEM.DEV utiliza conceitos como **Debug Mode**, **Daily Commit** e **Review Build**.
+
+A proposta é simples:
+
+**Estudar, identificar erros, aprender com eles e continuar evoluindo.**
 
 ---
+
 
 ## 🚀 Funcionalidades
 
-### 📚 Questões do ENEM
+### 📚 Banco de questões
 
-A plataforma utiliza a API pública ENEM.DEV para carregar questões de edições anteriores do exame.
+Pratique utilizando questões de edições anteriores do ENEM, carregadas por meio de uma API comunitária.
 
-**Recursos disponíveis:**
+**Funcionalidades:**
+
 - Seleção do ano da prova.
 - Filtros por área do conhecimento.
 - Seleção de idioma quando aplicável.
-- Visualização de enunciados e alternativas.
-- Verificação das respostas.
-- Controle de progresso para evitar repetições desnecessárias.
-- Tratamento de questões com conteúdo incompleto ou indisponível.
+- Verificação das alternativas.
+- Histórico de respostas.
+- Identificação de questões concluídas.
+- Tratamento de questões incompletas ou indisponíveis.
 
 ### 🐛 Debug Mode
 
-O **Debug Mode** é um sistema de revisão inspirado no processo de depuração de código.
+Um sistema de revisão inspirado na depuração de código.
 
-Quando uma questão é respondida incorretamente, ela passa a fazer parte da fila de revisão.
+Quando o estudante erra uma questão, ela passa a integrar sua fila de revisão.
 
-O estudante pode retornar a essas questões e tentar resolvê-las novamente.
+Ao responder corretamente em uma nova tentativa, a questão deixa de estar pendente.
 
-Ao acertar, a questão deixa a fila de pendências.
+**O objetivo não é apenas acertar, mas aprender com os erros.**
 
-**A ideia é simples: identificar erros, corrigi-los e continuar evoluindo.**
+### 📝 Explicações de questões
 
-### 📊 Desempenho
+O ENEM.DEV permite consultar explicações cadastradas no catálogo do aplicativo e registrar anotações pessoais.
 
-O ENEM.DEV acompanha o desempenho do estudante com base nas respostas registradas.
+O estudante pode:
 
-Entre os indicadores estão:
+- Consultar explicações disponíveis.
+- Registrar seu próprio raciocínio.
+- Comentar alternativas individualmente.
+- Adicionar fontes consultadas.
+- Editar suas anotações.
+- Marcar questões para revisão.
 
-- Total de tentativas.
-- Quantidade de acertos e erros.
-- Taxa de acerto.
-- Desempenho por área do conhecimento.
-- Questões concluídas.
-- Questões pendentes de revisão.
+As explicações pessoais são independentes do catálogo distribuído com o aplicativo.
 
-Os indicadores são calculados a partir dos dados reais de utilização, sem depender de estatísticas fictícias.
+### 🧪 Review Build
 
-### ⚡ Sistema de XP e níveis
+O **Review Build** permite criar sessões personalizadas de revisão.
 
-O estudante recebe pontos de experiência (XP) ao realizar atividades válidas dentro da plataforma.
+As questões podem ser selecionadas a partir de critérios como:
 
-O XP permite avançar de nível e acompanhar a evolução nos estudos.
+- Questões respondidas incorretamente.
+- Questões favoritas.
+- Questões com explicações pessoais.
 
-O sistema possui regras para evitar que a repetição indevida de uma mesma questão gere recompensas ilimitadas.
+A proposta é oferecer uma maneira de revisitar conteúdos já estudados e avaliar a retenção do conhecimento.
 
-### 🏆 Conquistas
+### ✍️ Redação Lab
 
-A plataforma possui **25 conquistas**, organizadas em diferentes categorias:
+Um ambiente dedicado à prática de redações.
 
-- **Início:** primeiros passos na plataforma.
-- **Estudos:** quantidade de questões respondidas.
-- **Precisão:** questões resolvidas corretamente.
-- **Debug Mode:** correção de erros.
-- **Consistência:** frequência nos estudos.
-- **Exploração:** atividades nas diferentes áreas do ENEM.
-- **Evolução:** progressão de níveis.
+**Recursos:**
 
-As conquistas são desbloqueadas de acordo com o progresso real do estudante.
+- Catálogo de temas.
+- Temas oficiais e autorais, quando disponíveis.
+- Criação de temas personalizados.
+- Editor de redações.
+- Salvamento de rascunhos.
+- Histórico de textos.
+- Contador de palavras.
+- Cronômetro opcional.
+- Checklist de autoavaliação.
+- Guia das cinco competências do ENEM.
+- Exportação de redações.
+
+Os estudantes podem utilizar temas disponibilizados pelo aplicativo ou criar suas próprias propostas.
+
+O Redação Lab não atribui notas oficiais e não substitui a avaliação realizada por professores ou corretores especializados.
+
+### 🏆 Gamificação
+
+O sistema de gamificação foi desenvolvido para incentivar a continuidade dos estudos.
+
+Inclui:
+
+- Pontos de experiência (XP).
+- Progressão de níveis.
+- **25 conquistas**.
+- Indicadores de progresso.
+- Feedback visual.
+- Recompensas por atividades válidas.
+
+As regras procuram evitar a obtenção ilimitada de XP pela repetição das mesmas questões.
 
 ### 🔥 Daily Commit
 
-Inspirado na ideia de realizar commits frequentes durante o desenvolvimento de software, o **Daily Commit** incentiva a consistência nos estudos.
+O Daily Commit incentiva a criação de uma rotina de estudos.
 
-O estudante pode acompanhar:
+O estudante pode definir uma meta diária e acompanhar:
 
-- Meta diária de questões.
-- Progresso da meta.
-- Dias consecutivos de estudo.
-- Maior sequência alcançada.
-- Histórico de metas concluídas.
+- Questões respondidas no dia.
+- Metas concluídas.
+- Sequências de estudo.
+- Histórico de consistência.
 
-O objetivo é incentivar o hábito de estudar regularmente, valorizando a consistência ao longo do tempo.
+A inspiração vem da prática de realizar commits frequentes durante o desenvolvimento de software.
 
-### 💾 Progresso persistente
+### 📊 Dashboard de desempenho
 
-O histórico de respostas, o progresso das questões e os dados de gamificação são armazenados localmente.
+O dashboard apresenta indicadores baseados no histórico real do estudante:
 
-Assim, o estudante pode fechar e reabrir o aplicativo sem perder seu progresso no mesmo ambiente.
-
-**Observação:** atualmente, o projeto não possui sincronização de progresso entre diferentes dispositivos.
+- Tentativas realizadas.
+- Acertos e erros.
+- Taxa de acerto.
+- Desempenho por área.
+- Questões concluídas.
+- Pendências de revisão.
+- XP e nível atual.
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias
 
-| Tecnologia | Utilização |
+| Tecnologia | Finalidade |
 |---|---|
-| React Native | Construção da interface multiplataforma |
-| Expo | Desenvolvimento e execução do aplicativo |
-| TypeScript | Linguagem utilizada no projeto |
-| Expo Router | Navegação e organização das rotas |
-| ENEM.DEV API | Fornecimento das questões do ENEM |
+| React Native | Desenvolvimento multiplataforma |
+| Expo | Ambiente de desenvolvimento e build |
+| TypeScript | Linguagem de programação |
+| Expo Router | Navegação |
+| ENEM.DEV API | Fonte externa de questões |
+| Armazenamento local | Persistência do progresso e das redações |
 
-A aplicação utiliza uma interface responsiva, com navegação lateral em telas maiores e navegação inferior em dispositivos móveis.
+O projeto utiliza uma arquitetura orientada a componentes, com separação entre interface, tipos, serviços e dados.
 
 ---
 
 ## 📂 Estrutura do projeto
 
-A organização segue a estrutura existente do Expo e do Expo Router.
+A estrutura segue os padrões utilizados pelo Expo Router.
 
 ```text
 ENEM.DEV/
 ├── src/
-│   ├── app/          # Telas e rotas
+│   ├── app/          # Rotas e telas
 │   ├── components/   # Componentes reutilizáveis
-│   ├── constants/    # Constantes e configurações
+│   ├── constants/    # Configurações
 │   ├── hooks/        # Hooks personalizados
-│   ├── services/     # Integrações e serviços
-│   └── types/        # Definições de tipos
+│   ├── services/     # Serviços e integrações
+│   └── types/        # Tipagens
 │
-├── assets/           # Recursos visuais
+├── assets/           # Imagens e recursos visuais
 ├── package.json
 ├── app.json
 └── README.md
 ```
 
-*A estrutura pode variar conforme a evolução do projeto.*
+*A estrutura apresentada é ilustrativa e deve ser ajustada conforme os arquivos atuais do repositório.*
 
 ---
 
-## 💻 Como executar
+## 💻 Executando localmente
 
 ### Pré-requisitos
 
-- Node.js instalado.
-- npm disponível.
-- Git, caso deseje clonar o repositório.
+- Node.js.
+- npm.
+- Git, para clonar o repositório.
 
-### 1. Obtenha o código-fonte
+### 1. Clone o projeto
 
-Clone o repositório pelo Git ou faça o download dos arquivos pelo GitHub.
+```bash
+git clone https://github.com/RenanoRuim/ENEM.DEV.git
+```
+
+Entre na pasta:
+
+```bash
+cd enemfordevs
+```
 
 ### 2. Instale as dependências
-
-Na pasta principal do projeto, execute:
 
 ```bash
 npm install
 ```
 
-### 3. Execute a versão Web
+### 3. Execute na Web
 
 ```bash
 npm run web
@@ -198,113 +268,140 @@ npm run android
 npm run ios
 ```
 
-A execução nativa depende da configuração do ambiente e da compatibilidade com as ferramentas do Expo.
+A execução nativa depende das ferramentas e configurações disponíveis no ambiente.
 
 ---
 
-## 🌐 API utilizada
+## 💾 Armazenamento e privacidade
 
-O ENEM.DEV utiliza a **ENEM.DEV API**, um projeto comunitário que disponibiliza dados de questões de edições anteriores do ENEM.
+O ENEM.DEV foi projetado para funcionar sem exigir uma conta de usuário.
 
-**Documentação da API:**
+O progresso de estudos, as anotações e as redações são armazenados localmente no ambiente utilizado.
 
-https://api.enem.dev/
+**Limitações importantes:**
 
-**Repositório da API:**
+- O progresso não é sincronizado automaticamente entre dispositivos.
+- A limpeza dos dados locais pode apagar informações armazenadas.
+- A disponibilidade das questões depende da API externa.
+- Não há garantia de funcionamento integral sem conexão com a internet.
 
-https://github.com/yunger7/enem-api
+Recomenda-se manter cópias dos textos e dados importantes quando houver ferramentas de exportação disponíveis.
 
-A aplicação utiliza essa API como fonte externa de conteúdo e não controla diretamente a disponibilidade ou a integridade de todos os dados fornecidos.
+---
 
-### ⚠️ Limitações conhecidas
+## 🌐 Fonte das questões
 
-Por depender de uma API externa, algumas questões podem apresentar:
+O aplicativo utiliza a **ENEM.DEV API**, mantida pela comunidade.
 
-- Enunciados ausentes ou incompletos.
-- Imagens indisponíveis.
+**Documentação:** https://api.enem.dev/
+
+**Repositório:** https://github.com/yunger7/enem-api
+
+O conteúdo disponibilizado pela API pode apresentar limitações, incluindo:
+
+- Enunciados incompletos.
+- Imagens ausentes.
 - Problemas de formatação.
-- Informações inconsistentes.
-- Falhas temporárias de carregamento.
+- Inconsistências nos dados.
+- Indisponibilidade temporária.
 
-A aplicação possui mecanismos para validar os dados e evitar que questões incompletas sejam respondidas normalmente.
+O aplicativo procura identificar questões inválidas antes de permitir que sejam respondidas.
 
-Entretanto, nem todas as limitações da fonte externa podem ser resolvidas diretamente pelo aplicativo.
-
-**O ENEM.DEV é um projeto independente, sem vínculo oficial com o INEP ou com o Ministério da Educação (MEC).**
-
----
-
-## 🤖 Desenvolvimento com Inteligência Artificial
-
-### O papel do Vibe Coding
-
-O desenvolvimento do ENEM.DEV foi realizado predominantemente por meio de **Vibe Coding**, uma abordagem em que ferramentas de Inteligência Artificial são utilizadas para gerar e modificar código a partir de instruções em linguagem natural.
-
-Em vez de escrever manualmente a maior parte da implementação, o processo envolveu descrever funcionalidades, estabelecer comportamentos esperados, analisar resultados e solicitar correções e melhorias.
-
-O uso da IA esteve presente em diferentes etapas, incluindo:
-
-- Construção da interface.
-- Implementação das funcionalidades.
-- Integração com a API.
-- Desenvolvimento da gamificação.
-- Implementação da persistência de dados.
-- Correção de bugs.
-- Melhorias de responsividade e animações.
-
-### Qual foi meu papel?
-
-Minha participação esteve principalmente na concepção e na condução do projeto:
-
-- Identificação do problema que motivou a aplicação.
-- Definição da proposta e das funcionalidades.
-- Planejamento da experiência de estudo.
-- Definição e refinamento das regras de funcionamento.
-- Testes das funcionalidades implementadas.
-- Identificação de erros e comportamentos inesperados.
-- Solicitação e avaliação de correções.
-- Decisões sobre prioridades e evolução do produto.
-
-### Por que utilizar Vibe Coding?
-
-Um dos objetivos foi explorar até que ponto ferramentas de IA poderiam auxiliar na transformação de uma ideia em um aplicativo funcional.
-
-A experiência também permitiu observar desafios importantes, como a necessidade de validar o código gerado, compreender as limitações das integrações externas e garantir que diferentes funcionalidades trabalhassem corretamente em conjunto.
-
-**O ENEM.DEV não é apresentado como um projeto inteiramente programado manualmente. O uso extensivo de Inteligência Artificial faz parte da proposta experimental e do processo de desenvolvimento.**
+> [!IMPORTANT]
+> O ENEM.DEV é um projeto independente e não possui vínculo oficial com o INEP ou com o Ministério da Educação (MEC).
 
 ---
 
-## 🔮 Melhorias futuras
+## 🤖 Desenvolvimento com Vibe Coding
 
-O ENEM.DEV poderá receber novas funcionalidades, como:
+### O que significa?
 
-- **Redação Lab:** módulo para prática de redações com temas do ENEM.
-- **Assistente de IA:** apoio na análise de redações e sugestões de estudo.
-- **Simulados:** sessões de estudo com quantidade definida de questões.
-- **Revisão inteligente:** priorização de conteúdos conforme as dificuldades.
-- **Autenticação:** contas individuais.
-- **Sincronização em nuvem:** progresso compartilhado entre dispositivos.
-- **Modo offline:** acesso a conteúdos previamente disponibilizados.
+O termo **Vibe Coding** descreve uma abordagem de desenvolvimento em que ferramentas de Inteligência Artificial são utilizadas para gerar e modificar código a partir de instruções em linguagem natural.
 
-Essas funcionalidades são possibilidades futuras e não fazem parte da versão atual.
+No ENEM.DEV, essa abordagem foi utilizada extensivamente.
+
+### Como o projeto foi desenvolvido?
+
+O processo envolveu:
+
+1. Identificar um problema real.
+2. Definir a proposta da aplicação.
+3. Planejar funcionalidades e comportamentos.
+4. Utilizar IA para implementar o código.
+5. Testar as funcionalidades.
+6. Identificar erros e limitações.
+7. Solicitar correções e melhorias.
+8. Refinar a experiência do usuário.
+
+### Qual foi o papel do criador?
+
+O criador foi responsável por idealizar o produto, direcionar seu desenvolvimento, definir prioridades, avaliar funcionalidades e realizar testes.
+
+A implementação foi realizada majoritariamente com auxílio de Inteligência Artificial.
+
+O projeto não é apresentado como um aplicativo inteiramente programado manualmente.
+
+**A transparência sobre o uso de IA é parte importante da documentação do ENEM.DEV.**
 
 ---
 
-## 🎯 Objetivo do projeto
+## 🗺️ Roadmap
 
-O ENEM.DEV busca unir três interesses:
+### Versão 1.0 — Base da plataforma
 
-**Educação, programação e tecnologia.**
+- [x] Integração com questões do ENEM.
+- [x] Histórico de respostas.
+- [x] Debug Mode.
+- [x] Dashboard de desempenho.
+- [x] XP, níveis e conquistas.
+- [x] Daily Commit.
 
-A proposta é transformar uma necessidade real de estudo em uma experiência interativa e, ao mesmo tempo, explorar novas formas de desenvolver software utilizando Inteligência Artificial.
+### Versão 2.0 — Ambiente de estudos
 
-O projeto continuará evoluindo conforme novas ideias, testes e aprendizados.
+- [x] Sistema de explicações.
+- [x] Redação Lab.
+- [x] Temas personalizados.
+- [x] Guia de competências.
+- [x] Explicações pessoais.
+- [x] Review Build.
+- [x] Finalizar e validar suporte a imagens nos textos motivadores.
+- [x] Validar exportação de redações em todas as plataformas.
+
+### Versão 3.0 — Próximos passos
+
+- [ ] Ampliar o catálogo de questões.
+- [ ] Investigar integração com Inteligência Artificial.
+- [ ] Estudar correção assistida de redações.
+- [ ] Melhorar recomendações de estudo.
+- [ ] Explorar novas ferramentas de revisão.
+
+As funcionalidades futuras estão sujeitas a mudanças.
 
 ---
+
+## 👨‍💻 Créditos
+
+**Idealizado e conduzido por Pedro Renan.**
+
+O ENEM.DEV surgiu como uma ferramenta pessoal de estudos e evoluiu com o objetivo de também ajudar amigos e outros estudantes na preparação para o ENEM.
+
+O desenvolvimento utilizou extensivamente ferramentas de Inteligência Artificial por meio de Vibe Coding.
+
+
+---
+
+## 📄 Licença
+
+**Licença a definir.**
+
+---
+
+<div align="center">
 
 ### `ENEM.DEV`
 
 **Compile seu conhecimento. Faça deploy do seu futuro.**
 
-*Projeto independente desenvolvido para fins educacionais e de aprendizado em desenvolvimento de software.*
+Feito para estudar, aprender e evoluir. 🚀
+
+</div>

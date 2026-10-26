@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useFocusEffect } from "expo-router";
-import { SlidersHorizontal, X } from "lucide-react-native";
+import { ListChecks, SlidersHorizontal, X } from "lucide-react-native";
 import {
   ActivityIndicator,
   Modal,
@@ -18,6 +18,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { AnswerQuestion } from "@/components/answer-question";
 import { FilterOptionGroup } from "@/components/filter-option-group";
+import { ReviewBuildModal } from "@/components/review-build";
 import { useViewportWidth } from "@/hooks/use-is-wide-layout";
 import {
   clearQuestionPageCache,
@@ -80,6 +81,8 @@ export default function QuestionsScreen() {
   const [draftDiscipline, setDraftDiscipline] = useState("");
   const [draftLanguage, setDraftLanguage] = useState("");
   const [isFilterSheetOpen, setIsFilterSheetOpen] = useState(false);
+  const [isReviewBuildOpen, setIsReviewBuildOpen] = useState(false);
+  const [reviewReloadToken, setReviewReloadToken] = useState(0);
   const [questions, setQuestions] = useState<EnemQuestion[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -394,7 +397,20 @@ export default function QuestionsScreen() {
     <View style={styles.screen}>
       <View style={styles.topBar}>
         <Text style={styles.screenTitle}>Questões</Text>
-        <Text style={styles.topBarLabel}>BANCO ENEM.DEV</Text>
+        <View style={styles.topBarActions}>
+          <Text style={styles.topBarLabel}>BANCO ENEM.DEV</Text>
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => {
+              setReviewReloadToken((value) => value + 1);
+              setIsReviewBuildOpen(true);
+            }}
+            style={styles.reviewLaunch}
+          >
+            <ListChecks color={colors.green} size={15} />
+            <Text style={styles.reviewLaunchText}>Review Build</Text>
+          </Pressable>
+        </View>
       </View>
       {selectedExam ? (
         <View style={styles.filterContainer}>
@@ -603,6 +619,11 @@ export default function QuestionsScreen() {
           </View>
         </View>
       </Modal>
+      <ReviewBuildModal
+        visible={isReviewBuildOpen}
+        reloadToken={reviewReloadToken}
+        onClose={() => setIsReviewBuildOpen(false)}
+      />
     </View>
   );
 }
@@ -657,6 +678,27 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 9,
     letterSpacing: 0.8,
+    fontWeight: "700",
+  },
+  topBarActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  reviewLaunch: {
+    minHeight: 38,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 7,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 8,
+    backgroundColor: colors.surface,
+  },
+  reviewLaunchText: {
+    color: colors.green,
+    fontSize: 11,
     fontWeight: "700",
   },
   filtersPanel: {

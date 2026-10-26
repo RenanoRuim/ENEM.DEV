@@ -16,6 +16,11 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Icon sf="book.closed" md="menu_book" />
       </NativeTabs.Trigger>
 
+      <NativeTabs.Trigger name="redacao-lab">
+        <NativeTabs.Trigger.Label>Redação Lab</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="pencil.and.outline" md="edit_note" />
+      </NativeTabs.Trigger>
+
       <NativeTabs.Trigger name="debug">
         <NativeTabs.Trigger.Label>Debug</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf="ladybug" md="bug_report" />
@@ -26,7 +31,7 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Icon sf="chart.bar" md="bar_chart" />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="about">
+      <NativeTabs.Trigger name="about" hidden>
         <NativeTabs.Trigger.Label>Sobre</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf="info.circle" md="info" />
       </NativeTabs.Trigger>

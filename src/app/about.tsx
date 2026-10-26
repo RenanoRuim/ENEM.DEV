@@ -1,5 +1,6 @@
 import {
   AlertTriangle,
+  ArrowLeft,
   BookOpenCheck,
   BrainCircuit,
   Code2,
@@ -9,7 +10,8 @@ import {
   Layers3,
   Trophy,
 } from "lucide-react-native";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import { AppHeader } from "@/components/app-header";
 import { ExternalLink } from "@/components/external-link";
@@ -58,16 +60,29 @@ const features = [
 ];
 
 export default function AboutScreen() {
+  const router = useRouter();
   const isWide = useIsWideLayout();
 
   return (
     <View style={styles.screen}>
       <AppHeader title="Sobre o ENEM.DEV" />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Voltar à tela anterior"
+        onPress={() => {
+          if (router.canGoBack()) {
+            router.back();
+          } else {
+            router.replace("/");
+          }
+        }}
+        style={({ pressed }) => [styles.backButton, pressed && styles.backButtonPressed]}
+      >
+        <ArrowLeft color={colors.blue} size={16} />
+        <Text style={styles.backButtonText}>Voltar</Text>
+      </Pressable>
       <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          isWide && styles.contentWide,
-        ]}
+        contentContainerStyle={[styles.content, isWide && styles.contentWide]}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.hero}>
@@ -75,7 +90,9 @@ export default function AboutScreen() {
             <Code2 color={colors.green} size={22} />
           </View>
           <Text style={styles.eyebrow}>PROJETO INDEPENDENTE</Text>
-          <Text style={styles.title}>Estudar para o ENEM, um passo de cada vez.</Text>
+          <Text style={styles.title}>
+            Estudar para o ENEM, um passo de cada vez.
+          </Text>
           <Text style={styles.description}>
             O ENEM.DEV nasceu da necessidade pessoal de estudar para o ENEM. A
             ideia é tornar essa preparação mais organizada, interativa e
@@ -122,12 +139,40 @@ export default function AboutScreen() {
             <Text style={styles.sectionTitle}>Desenvolvimento com IA</Text>
           </View>
           <Text style={styles.bodyText}>
-            Ferramentas de inteligência artificial foram utilizadas como apoio
-            durante o desenvolvimento. O projeto segue uma abordagem conhecida
-            como vibe coding: partir de ideias e refiná-las iterativamente com
-            assistência de IA. A IA é uma ferramenta de apoio; os recursos
-            exibidos dependem do código e dos dados disponíveis no aplicativo.
+            A implementação utilizou extensivamente ferramentas de inteligência
+            artificial em um processo de Vibe Coding. O criador definiu as
+            funcionalidades, orientou o desenvolvimento, realizou testes e tomou
+            as decisões sobre as melhorias. As ferramentas de IA foram apoio à
+            implementação, sob condução do criador.
           </Text>
+        </View>
+
+        <View style={styles.section}>
+          <View style={styles.sectionHeading}>
+            <Code2 color={colors.blue} size={18} />
+            <Text style={styles.sectionTitle}>Créditos do desenvolvedor</Text>
+          </View>
+          <Text style={styles.bodyText}>
+            Pedro Renan idealizou e conduziu o ENEM.DEV, um projeto independente
+            com objetivo educacional: apoiar estudantes na preparação para o
+            ENEM. Ele definiu as funcionalidades, orientou o desenvolvimento,
+            realizou testes e tomou as decisões sobre as melhorias do
+            aplicativo.
+          </Text>
+          <Text style={styles.bodyText}>
+            O desenvolvimento utilizou extensivamente ferramentas de
+            inteligência artificial por meio de Vibe Coding; a concepção, a
+            orientação e as decisões do projeto permaneceram sob
+            responsabilidade do criador.
+          </Text>
+          <ExternalLink
+            href="https://github.com/RenanoRuim"
+            style={styles.githubButton}
+          >
+            <Code2 color={colors.background} size={15} />
+            <Text style={styles.githubButtonText}>GitHub de P. Renan</Text>
+            <ExternalLinkIcon color={colors.background} size={13} />
+          </ExternalLink>
         </View>
 
         <View style={[styles.section, styles.noticeSection]}>
@@ -152,10 +197,7 @@ export default function AboutScreen() {
           <GraduationCap color={colors.muted} size={18} />
           <View style={styles.linksCopy}>
             <Text style={styles.linksTitle}>Saiba mais sobre a fonte</Text>
-            <ExternalLink
-              href="https://api.enem.dev/"
-              style={styles.link}
-            >
+            <ExternalLink href="https://api.enem.dev/" style={styles.link}>
               Documentação da API ENEM.DEV
               <ExternalLinkIcon color={colors.blue} size={13} />
             </ExternalLink>
@@ -195,6 +237,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingTop: 28,
   },
+  backButton: {
+    minHeight: 42,
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start",
+    gap: 7,
+    marginHorizontal: 18,
+    marginTop: 10,
+    paddingHorizontal: 8,
+    borderRadius: 7,
+  },
+  backButtonPressed: { opacity: 0.7 },
+  backButtonText: { color: colors.blue, fontSize: 12, fontWeight: "600" },
   hero: {
     padding: 22,
     gap: 12,
@@ -324,6 +379,21 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     gap: 6,
     color: colors.blue,
+    fontSize: 11,
+    fontWeight: "600",
+  },
+  githubButton: {
+    minHeight: 40,
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start",
+    gap: 8,
+    paddingHorizontal: 13,
+    borderRadius: 8,
+    backgroundColor: colors.green,
+  },
+  githubButtonText: {
+    color: colors.background,
     fontSize: 11,
     fontWeight: "600",
   },
