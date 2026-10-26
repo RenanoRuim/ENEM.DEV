@@ -341,7 +341,6 @@ A implementação foi realizada majoritariamente com auxílio de Inteligência A
 
 O projeto não é apresentado como um aplicativo inteiramente programado manualmente.
 
-**A transparência sobre o uso de IA é parte importante da documentação do ENEM.DEV.**
 
 ---
 
