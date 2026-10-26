@@ -235,13 +235,13 @@ ENEM.DEV/
 ### 1. Clone o projeto
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/RenanoRuim/ENEM.DEV.git
 ```
 
 Entre na pasta:
 
 ```bash
-cd enem-dev
+cd enemfordevs
 ```
 
 ### 2. Instale as dependências
