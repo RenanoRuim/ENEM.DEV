@@ -13,7 +13,7 @@ Questões • Revisões • Redações • Conquistas • Progresso
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Android-22C55E?style=for-the-badge)
 
-· [🐛 Reportar problema](https://github.com/RenanoRuim/ENEM.DEV/issues)**
+· [🐛 Reportar problema](https://github.com/RenanoRuim/ENEM.DEV/issues)\*\*
 
 </div>
 
@@ -66,7 +66,6 @@ A proposta é simples:
 **Estudar, identificar erros, aprender com eles e continuar evoluindo.**
 
 ---
-
 
 ## 🚀 Funcionalidades
 
@@ -187,13 +186,13 @@ O dashboard apresenta indicadores baseados no histórico real do estudante:
 
 ## 🛠️ Tecnologias
 
-| Tecnologia | Finalidade |
-|---|---|
-| React Native | Desenvolvimento multiplataforma |
-| Expo | Ambiente de desenvolvimento e build |
-| TypeScript | Linguagem de programação |
-| Expo Router | Navegação |
-| ENEM.DEV API | Fonte externa de questões |
+| Tecnologia          | Finalidade                               |
+| ------------------- | ---------------------------------------- |
+| React Native        | Desenvolvimento multiplataforma          |
+| Expo                | Ambiente de desenvolvimento e build      |
+| TypeScript          | Linguagem de programação                 |
+| Expo Router         | Navegação                                |
+| ENEM.DEV API        | Fonte externa de questões                |
 | Armazenamento local | Persistência do progresso e das redações |
 
 O projeto utiliza uma arquitetura orientada a componentes, com separação entre interface, tipos, serviços e dados.
@@ -220,7 +219,7 @@ ENEM.DEV/
 └── README.md
 ```
 
-*A estrutura apresentada é ilustrativa e deve ser ajustada conforme os arquivos atuais do repositório.*
+_A estrutura apresentada é ilustrativa e deve ser ajustada conforme os arquivos atuais do repositório._
 
 ---
 
@@ -341,7 +340,6 @@ A implementação foi realizada majoritariamente com auxílio de Inteligência A
 
 O projeto não é apresentado como um aplicativo inteiramente programado manualmente.
 
-
 ---
 
 ## 🗺️ Roadmap
@@ -385,7 +383,6 @@ As funcionalidades futuras estão sujeitas a mudanças.
 O ENEM.DEV surgiu como uma ferramenta pessoal de estudos e evoluiu com o objetivo de também ajudar amigos e outros estudantes na preparação para o ENEM.
 
 O desenvolvimento utilizou extensivamente ferramentas de Inteligência Artificial por meio de Vibe Coding.
-
 
 ---
 

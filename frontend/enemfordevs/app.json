@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "ENEM.DEV",
+    "slug": "enemfordevs",
+    "version": "3.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/Miguel1.png",
+    "scheme": "enemfordevs",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/expo.icon"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/Miguel1.png",
+        "backgroundImage": "./assets/images/Miguel1.png",
+        "monochromeImage": "./assets/images/Miguel1.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "softwareKeyboardLayoutMode": "resize",
+      "package": "com.renanneopl1.enemfordevs"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/Miguel1.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#208AEF",
+          "image": "./assets/images/Miguel1.png",
+          "imageWidth": 76
+        }
+      ],
+      "expo-sharing",
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "a60ad800-5ce5-457b-b3bf-67bd4bed1625"
+      }
+    }
+  }
+}
